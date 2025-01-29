@@ -5,7 +5,16 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
+    dashboard = {
+      enabled = true,
+      sections = {
+        { section = "header" },
+        { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+        { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+        { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+        { section = "startup" },
+      },
+    },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = {
@@ -16,7 +25,15 @@ return {
     quickfile = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
-    words = { enabled = true },
+    words = {
+      enabled = true,
+      debounce = 200, -- time in ms to wait before updating
+      notify_jump = false, -- show a notification when jumping
+      notify_end = true, -- show a notification when reaching the end
+      foldopen = true, -- open folds after jumping
+      jumplist = true, -- set jump point before jumping
+      modes = { "n", "i", "c" }, -- modes to show references
+    },
     styles = {
       notification = {
         -- wo = { wrap = true } -- Wrap notifications
